@@ -87,7 +87,9 @@ select {
   color: #111827;
   cursor: pointer;
   font-size: 18px;
-  transition: background 0.2s ease, transform 0.1s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.1s ease;
   flex-shrink: 0;
 }
 
@@ -166,7 +168,9 @@ button {
   background: #2563eb;
   color: white;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.1s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.1s ease;
 }
 
 button:hover {

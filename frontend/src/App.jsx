@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const apiUrl = "/api/notes";
+const apiUrl = "http://localhost:4000/api/notes";
 
 function App() {
   const [notes, setNotes] = useState([]);
@@ -216,10 +216,7 @@ function App() {
                 >
                   Delete
                 </button>
-                <button
-                  onClick={() => toggleRead(note)}
-                  className="secondary"
-                >
+                <button onClick={() => toggleRead(note)} className="secondary">
                   {note.read ? "Mark as Unread" : "Mark as Read"}
                 </button>
               </div>

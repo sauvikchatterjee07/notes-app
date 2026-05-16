@@ -1,0 +1,21 @@
+name: SSH Handshaking
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: pub-pri Handshaking
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Execute remote SSH commands using SSH key
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.HOST }}
+          username: ubuntu
+          key: ${{ secrets.KEY }}
+          port: 22
+          script: whoami
