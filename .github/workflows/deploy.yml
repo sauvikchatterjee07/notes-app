@@ -26,6 +26,7 @@ jobs:
             git clone https://github.com/sauvikchatterjee07/notes-app.git
 
             cd frontend
+
             npm install
 
             sudo apt update
