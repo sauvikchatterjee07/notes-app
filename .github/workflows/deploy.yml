@@ -38,3 +38,13 @@ jobs:
 
             npm run build
             sudo cp -r dist/* /var/www/html/
+
+            cd ../backend
+
+            npm install
+            npm install -g pm2
+
+            echo "${{secrets.BACKEND_ENV}}" > .env
+            cat .env
+
+            pm2 start server.js --name notes-backend
