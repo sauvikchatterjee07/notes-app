@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const apiUrl = "http://3.108.235.103:4000/api/notes";
+const apiUrl = "https://notes.bengalcodingacademy.com/v1/api/notes";
 
 function App() {
   const [notes, setNotes] = useState([]);
