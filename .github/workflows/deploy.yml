@@ -27,7 +27,7 @@ jobs:
 
             git clone https://github.com/sauvikchatterjee07/notes-app.git
 
-            cd frontend
+            cd notes-app/frontend
 
             npm install
 
@@ -37,4 +37,4 @@ jobs:
             sudo systemctl enable nginx
 
             npm run build
-            sudo scp -r dist/* /var/www/html/
+            sudo cp -r dist/* /var/www/html/
