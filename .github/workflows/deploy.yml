@@ -20,7 +20,3 @@ jobs:
           port: 22
           script: |
             whoami
-            touch hello.txt
-            cd
-            ls 
-            ls -a
