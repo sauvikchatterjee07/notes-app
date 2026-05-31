@@ -27,9 +27,10 @@ mongoose
 
 app.get("/api/notes", async (req, res) => {
   try {
-    console.log("new request to /api/notes");
+    console.log("request received");
 
     const { search = "", status = "all" } = req.query;
+
     const filter = {};
 
     if (search.trim()) {
@@ -45,10 +46,16 @@ app.get("/api/notes", async (req, res) => {
       filter.read = false;
     }
 
+    console.log("before query");
+
     const notes = await Note.find(filter).sort({ createdAt: -1 });
+
+    console.log("after query", notes.length);
+
     res.json(notes);
   } catch (error) {
-    res.status(500).json({ error: "Failed to load notes" });
+    console.error(error);
+    res.status(500).json({ error: error.message });
   }
 });
 
