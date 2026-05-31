@@ -1,0 +1,47 @@
+services:
+  mongodb:
+    image: mongo
+    container_name: mymongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_volume:/data/db
+    networks:
+      - my_personal_network
+
+  my-fav-backend:
+    # build:
+    #   context: ./backend
+    #   dockerfile: Dockerfile
+    image: sauvikxdocker/my-backend:latest
+    container_name: my-fav-backend
+    restart: always
+    depends_on:
+      - mongodb
+    ports:
+      - "4000:4000"
+    environment:
+      MONGO_URI: mongodb://mymongodb:27017
+    networks:
+      - my_personal_network
+
+  my-fav-frontend:
+    # build:
+    #   context: ./frontend
+    #   dockerfile: Dockerfile
+    image: sauvikxdocker/my-frontend:latest
+    container_name: my-fav-frontend
+    restart: always
+    depends_on:
+      - my-fav-backend
+    ports:
+      - "80:5173"
+    networks:
+      - my_personal_network
+
+volumes:
+  mongo_volume:
+
+networks:
+  my_personal_network:
+    external: true

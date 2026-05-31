@@ -27,6 +27,8 @@ mongoose
 
 app.get("/api/notes", async (req, res) => {
   try {
+    console.log("new request to /api/notes");
+
     const { search = "", status = "all" } = req.query;
     const filter = {};
 
